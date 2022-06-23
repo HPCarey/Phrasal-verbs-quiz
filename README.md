@@ -30,10 +30,15 @@ The intended user is any person who is a learner of the English language. These 
 
 ### Wireframes:
 Wireframes were created using Balsamiq.
-See [Wireframes.](docs/README-images/wireframes.pdf)
+See [Wireframes.](assets/wireframes/phrasal%20verbs%20quiz%20wireframes.pdf)
 
 
 ## Features
+### Existing features
+#### Heading and logo
+Featured at the top of the page, the heading contains the name of the activity and an icon of a gradation cap take from [fontawesome.com](https://fontawesome.com/).
+#### Favicon
+* The favicon features an image of a lightbulb o signify ideas and learning and to help the tab stand out. It was generated using [favicon.io](https://favicon.io/emoji-favicons/).
 ## Future Features
 ## Typography and color scheme
 
