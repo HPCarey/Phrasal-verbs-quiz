@@ -30,7 +30,12 @@ The intended user is any person who is a learner of the English language. These 
 
 ### Wireframes:
 Wireframes were created using Balsamiq.
-[Wireframes](readme/wireframes/phrasal-verbs-quiz-wireframes.pdf)
+![Wireframes](readme/wireframes/welcome.png)
+![Wireframes](readme/wireframes/quiz.png)
+![Wireframes](readme/wireframes/final_score.png)
+![Wireframes](readme/wireframes/mobile_welcome.png)
+![Wireframes](readme/wireframes/mobile_quiz.png)
+![Wireframes](readme/wireframes/mobile_final_score.png)
 
 ## Features
 ### Existing features
