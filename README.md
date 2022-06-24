@@ -45,6 +45,8 @@ Featured at the top of the page, the heading contains the name of the activity a
 * The favicon features an image of a lightbulb o signify ideas and learning and to help the tab stand out. It was generated using [favicon.io](https://favicon.io/emoji-favicons/).
 ## Future Features
 ## Typography and color scheme
+* The Nunito font was chosen using google fonts because it is simple and readable but also has a softness because of the rounded edges.
+* I used [figma](https://www.figma.com/file/RgYErSjELw326fP4MH6jt4kT/Nunito-Pairings/duplicate?node-id=1%3A198) to check what fonts pair well with Nunita and ended up going with Roboto.
 
 ===== Before Code/implementation ===
 ## Technology
