@@ -1,7 +1,7 @@
 // Below are questions, options and answers for quiz
 const questions = [
     {
-      question: "Meaning: Learn a new skill through practice rather than study."
+      question: "Meaning: Learn a new skill through practice rather than study.",
       options: ["read up on", "fill in", "pick up", "take up"],
       correctAnswer: "pick up"
     },
@@ -31,4 +31,3 @@ const questions = [
         correctAnswer: "fill in"
       },
    ]
-   
