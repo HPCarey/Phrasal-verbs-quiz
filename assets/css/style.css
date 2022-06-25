@@ -23,9 +23,10 @@ h1, h2, h3 {
 
 header {
     text-align: center;
-    padding-top: 5%;
+    padding-top: 2.5%;
 }
 
+/* Welcome text style rules for landing page */
 .welcome-text {
     display: flex;
     flex-direction: column;
@@ -37,7 +38,26 @@ header {
     background: lightblue;
     border: 7px solid darkblue;
     border-radius: 5px;
-    margin: 4% auto;
+    margin: 2% auto;
     padding: 1%;
 }
 
+/* add general styles for buttons*/
+button {
+    font-size: 230%;
+    height: fit-content;
+    box-sizing: border-box;
+    border: 7px solid darkblue;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    background: lightblue;
+    margin: 1%;
+    padding: 1%;
+}
+
+/* start quiz button style*/ 
+.start-btn {
+    display: flex;
+    justify-content: center;
+}
