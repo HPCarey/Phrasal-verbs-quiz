@@ -1,3 +1,26 @@
+// define variables to select elements
+const startButton = document.getElementById("start-quiz-button");
+
+// event listeners
+startButton.addEventListener('click', runQuiz);
+
+//functions
+
+function runQuiz() {
+
+}
+
+function renderQuestion(question) {
+
+}
+
+function checkAnswer(event) {
+
+}
+
+function incrementScore() {
+  
+}
 // Below are questions, options and answers for quiz
 const questions = [
     {
