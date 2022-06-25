@@ -61,3 +61,23 @@ button {
     display: flex;
     justify-content: center;
 }
+
+/*quiz-game area styles*/
+.quiz-game-area {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 60%;
+    height: max-content;
+    justify-content: center;
+    align-items: stretch;
+    background: lightblue;
+    border: 7px solid darkblue;
+    border-radius: 5px;
+    margin: 2% auto;
+    padding: 1%;
+}
+
+.hide {
+    display: none;
+}
