@@ -81,3 +81,12 @@ button {
 .hide {
     display: none;
 }
+
+/* Media query for  mobile screens*/
+@media screen and (max-width: 800px) {
+    button {
+        font-size: 100%;
+    
+    }
+    
+}
