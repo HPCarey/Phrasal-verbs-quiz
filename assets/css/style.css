@@ -27,7 +27,7 @@ header {
 }
 
 /* Welcome text style rules for landing page */
-.welcome-text {
+.start-page {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -88,5 +88,17 @@ button {
         font-size: 100%;
     
     }
+
+    h1 {
+        font-size: 100%;
+    }
     
+    h2, h3 { 
+        font-size: 80%;
+        padding: 0 1%;
+    }
+
+    p {
+        font-size: 100%;
+    }
 }
