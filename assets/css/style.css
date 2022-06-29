@@ -17,6 +17,10 @@ body {
     flex-direction: column;
 }
 
+h1 {
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
 h1, h2, h3 {
     font-family: 'Nunito', sans-serif;
 }
@@ -44,15 +48,15 @@ header {
 
 /* add general styles for buttons*/
 button {
-    font-size: 230%;
+    font-size: 160%;
     height: fit-content;
     box-sizing: border-box;
-    border: 7px solid darkblue;
+    border: 1px solid darkblue;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    background: lightblue;
-    margin: 1%;
+    background: lightgray;
+    margin: 6% 1% 1%;
     padding: 1%;
 }
 
@@ -82,17 +86,58 @@ button {
     display: none;
 }
 
+/* Media query for  tablet screens*/
+@media screen and (max-width: 950px) {
+    .start-page {
+        width: 80%
+    }
+    
+    .welcome-text {
+        align-self: center;
+    }
+    
+    h1 {
+        font-size: 190%;
+        margin-top: 1%;
+    }
+
+    h2 {
+        margin-top: 2%;
+    }
+    
+    h2, h3 { 
+        font-size: 145%;
+        padding: 0 1%;
+    }
+
+    p {
+        font-size: 115%;
+    }
+    button {
+        margin: 7% auto 4%;
+    }
+}
+
 /* Media query for  mobile screens*/
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 480px) {
+    .start-page {
+        width: 90%;
+        margin: 4% auto 2%;
+    }
     button {
         font-size: 100%;
+        margin: 8% 1% 8%;
     
     }
 
     h1 {
         font-size: 100%;
+        margin: 1% auto 1%;
     }
-    
+
+    h2 {
+        margin: 4% auto 1%;
+    }
     h2, h3 { 
         font-size: 80%;
         padding: 0 1%;
