@@ -89,6 +89,12 @@ button {
     margin: 2% auto;
     padding: 1%;
 }
+.answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 12%;
+    
+}
 
 .hide {
     display: none;
