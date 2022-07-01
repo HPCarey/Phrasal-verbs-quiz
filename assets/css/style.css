@@ -9,10 +9,15 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 /*general style rules for body element*/
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -123,6 +128,40 @@ button {
     .start-page {
         width: 90%;
         margin: 4% auto 2%;
+        position: absolute;
+        bottom: 22%;
+        right: 5%;
+    }
+    button {
+        font-size: 100%;
+        margin: 8% 1% 8%;
+    
+    }
+
+    h1 {
+        font-size: 100%;
+        margin: 1% auto 1%;
+    }
+
+    h2 {
+        margin: 4% auto 1%;
+    }
+    h2, h3 { 
+        font-size: 80%;
+        padding: 0 1%;
+    }
+
+    p {
+        font-size: 100%;
+    }
+}  
+
+/* Media query for  mobile screens*/
+@media screen and (max-width: 380px) {
+    .start-page {
+        width: 90%;
+        margin: 4% auto 2%;
+        position: unset;
     }
     button {
         font-size: 100%;
