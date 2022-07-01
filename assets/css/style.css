@@ -26,7 +26,10 @@ h1 {
     margin-bottom: 1%;
     margin-top: 1%;
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
     font-family: 'Nunito', sans-serif;
 }
 
@@ -65,7 +68,7 @@ button {
     padding: 1%;
 }
 
-/* start quiz button style*/ 
+/* start quiz button style*/
 .start-btn {
     display: flex;
     justify-content: center;
@@ -94,13 +97,22 @@ button {
 /* Media query for  tablet screens*/
 @media screen and (max-width: 950px) {
     .start-page {
-        width: 80%
+        width: 80%;
+        position: absolute;
+        align-self: center;
+        bottom: 29%;
     }
-    
+
+    header {
+        position: absolute;
+        align-self: center;
+        top: 17%;
+    }
+
     .welcome-text {
         align-self: center;
     }
-    
+
     h1 {
         font-size: 190%;
         margin-top: 1%;
@@ -109,8 +121,9 @@ button {
     h2 {
         margin-top: 2%;
     }
-    
-    h2, h3 { 
+
+    h2,
+    h3 {
         font-size: 145%;
         padding: 0 1%;
     }
@@ -118,8 +131,49 @@ button {
     p {
         font-size: 115%;
     }
+
     button {
         margin: 7% auto 4%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    /* adjusts positon of header for slightly narrower screen sizes*/
+    header {
+        position: absolute;
+        align-self: center;
+        top: 12%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    /* adjusts positon of header for slightly narrower screen sizes*/
+    header {
+        position: absolute;
+        align-self: center;
+        top: 12%;
+    }
+
+    .start-page {
+        position: absolute;
+        bottom: 0%;
+        bottom: 21%;
+    }
+}
+
+/* Media query for  tablet screens*/
+@media screen and (max-width: 600px) {
+
+    /* adjusts positon of section for slightly narrower screen sizes*/
+    .start-page {
+        position: absolute;
+        bottom: 0%;
+    }
+
+    header {
+        top: 0%;
     }
 }
 
@@ -130,59 +184,69 @@ button {
         margin: 4% auto 2%;
         position: absolute;
         bottom: 22%;
-        right: 5%;
+        align-self: center;
     }
+
+    header {
+        position: absolute;
+        top: 8%;
+    }
+
     button {
         font-size: 100%;
         margin: 8% 1% 8%;
-    
+
     }
 
     h1 {
-        font-size: 100%;
+        font-size: 110%;
         margin: 1% auto 1%;
     }
 
     h2 {
         margin: 4% auto 1%;
     }
-    h2, h3 { 
-        font-size: 80%;
+
+    h2,
+    h3 {
+        font-size: 100%;
         padding: 0 1%;
     }
 
     p {
         font-size: 100%;
     }
-}  
+}
+
+/* Media query for  mobile screens*/
+@media screen and (max-width: 400px) {
+
+    /* adjusts positon of section for slightly narrower screen sizes*/
+    .start-page {
+        position: absolute;
+        bottom: 17%;
+    }
+}
 
 /* Media query for  mobile screens*/
 @media screen and (max-width: 380px) {
+
+    /*overwrites position styles for start section in wider screen mobiles*/
     .start-page {
-        width: 90%;
-        margin: 4% auto 2%;
         position: unset;
     }
-    button {
-        font-size: 100%;
-        margin: 8% 1% 8%;
-    
+
+    /*overwrites position styles for header in wider screen mobiles*/
+    header {
+        position: unset;
     }
 
     h1 {
         font-size: 100%;
-        margin: 1% auto 1%;
     }
 
-    h2 {
-        margin: 4% auto 1%;
-    }
-    h2, h3 { 
+    h2,
+    h3 {
         font-size: 80%;
-        padding: 0 1%;
-    }
-
-    p {
-        font-size: 100%;
     }
 }
