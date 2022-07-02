@@ -1,9 +1,10 @@
 // define variables to select elements
 const startButton = document.getElementById("start-quiz-button");
+const nextButton = document.getElementById("next-button");
 
 // event listeners
 startButton.addEventListener('click', runQuiz);
-
+nextButton.addEventListener('click', renderQuestion);
 //functions
 
 function runQuiz() {
