@@ -5,6 +5,7 @@ const question = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const startPage = document.getElementById("start-page");
 const quizContainer = document.getElementById("quiz-container");
+const welcomeHeading = document.getElementById("welcome-heading");
 
 // event listeners
 startButton.addEventListener('click', runQuiz);
@@ -14,6 +15,7 @@ nextButton.addEventListener('click', renderQuestion);
 function runQuiz() {
   startPage.classList.add('hide');
   quizContainer.classList.remove('hide');
+  welcomeHeading.innerHTML = "Choose the correct phrasal verb";
   document.getElementById('right').textContent = 0;
   document.getElementById('wrong').textContent = 0;
   currentQuestionIndex = 0;
