@@ -89,11 +89,26 @@ button {
     margin: 2% auto;
     padding: 1%;
 }
+
+.question {
+    font-size: 150%;
+}
 .answer-buttons {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 12%;
     
+}
+/*styles for the div containing the next button*/
+.next-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/*styles for the next button*/
+.next-button {
+    font-size: 150%;
 }
 
 .hide {
