@@ -28,7 +28,7 @@ function runQuiz() {
 }
 
 function renderQuestion() {
-  //resetState()
+  resetState()
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
 
 }
@@ -49,14 +49,13 @@ function displayQuestion(question) {
 });
 }
 
-function resetState(){
-  nextButton.classList.add('hide')
+function resetState() {
   /* Removes the default answer buttons
   source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  nextButton.classList.add('hide');
+  answerButtons.innerHTML = '';
   }
-  }
+  
 
 function checkAnswer(event) {
 
