@@ -30,6 +30,7 @@ function runQuiz() {
 function renderQuestion() {
   resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
+  currentQuestionIndex++;
 
 }
 
@@ -66,6 +67,8 @@ function checkAnswer(e) {
   nextButton.classList.remove('hide');
 }
 
+//shows colour change to indicate correct/incorrect answer input from user
+//https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
