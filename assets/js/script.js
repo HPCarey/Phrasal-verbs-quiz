@@ -64,7 +64,12 @@ function checkAnswer(e) {
   Array.from(answerButtons.children).forEach(button => {
     setStatusClass(button, button.dataset.correct);
   });
-  nextButton.classList.remove('hide');
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide');
+  } else {
+    startButton.classList.remove('hide');
+    startButton.innerText = 'Restart';
+}
 }
 
 //shows colour change to indicate correct/incorrect answer input from user
