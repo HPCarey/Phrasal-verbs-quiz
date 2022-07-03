@@ -28,7 +28,7 @@ function runQuiz() {
 }
 
 function renderQuestion() {
-  resetState()
+  resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
 
 }
@@ -57,8 +57,30 @@ function resetState() {
   }
   
 
-function checkAnswer(event) {
+function checkAnswer(e) {
+  const selectButton = e.target;
+  const correct = selectButton.dataset.correct;
+  Array.from(answerButtons.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct);
+  });
+  nextButton.classList.remove('hide');
+}
 
+function setStatusClass(element, correct) {
+  clearStatusClass(element);
+  if (correct) {
+    clearStatusClass(element);
+    if (correct) {
+      element.classList.add('correct');
+    } else {
+      element.classList.add('incorrect');
+    }
+  }
+  
+  function clearStatusClass(element) {
+    element.classList.remove('correct');
+    element.classList.remove('incorrect');
+  }
 }
 
 function incrementScore() {

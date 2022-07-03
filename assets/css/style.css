@@ -117,6 +117,14 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
     display: none;
 }
 
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}
+
 /* Media query for  tablet screens*/
 @media screen and (max-width: 950px) {
     .start-page {
