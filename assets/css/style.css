@@ -69,6 +69,12 @@ button {
     padding: 1%;
 }
 
+.button:hover {
+    background-color: darkblue;
+    color: lightgray;
+  }
+
+
 /* start quiz and restart quiz button style*/
 .start-btn,
 .restart-btn {
