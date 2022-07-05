@@ -1,5 +1,4 @@
 // define variables to select elements
-
 let shuffledQuestions = null;
 let currentQuestionIndex = null;
 
@@ -14,9 +13,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
 });
 
-
-
 //functions
+
+/**
+ * runs quiz 
+ * renders questions and shuffles them so the order is random
+ * source:https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
+ */
 function runQuiz() {
   let startPage = document.getElementById("start-page");
   startPage.classList.add('hide');
@@ -24,8 +27,6 @@ function runQuiz() {
   quizContainer.classList.remove('hide');
   let welcomeHeading = document.getElementById("welcome-heading");
   welcomeHeading.innerHTML = "Choose the correct phrasal verb:";
-  /* followed instructions from this video in order to create the render function and display function features
-  https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
   shuffledQuestions = questions.sort(() => Math.random() - .5);
   currentQuestionIndex = 0;
   renderQuestion();
@@ -35,31 +36,33 @@ function renderQuestion() {
   resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
   currentQuestionIndex++;
-  //nextQuestionIcon.classList.add("greyscale");
-  //nextQuestionIcon.setAttribute("disabled", "disabled");
 }
 
+/**
+ * creates a button and sets its content as the options in the questions section.
+ *  source https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
+ * marks the correct answer as correct in the HTML
+ */
 function displayQuestion(question) {
   let questionElement = document.getElementById("question");
   questionElement.innerHTML = question.question;
-  /* creates a button and sets its content as the options in the questions section.
-  source https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
   question.options.forEach(answer => {
     let button = document.createElement('button');
     button.textContent = answer.text;
     let answerButtons = document.getElementById("answer-buttons");
     answerButtons.appendChild(button);
     button.addEventListener('click', checkAnswer);
-    // marks the correct answer as correct in the HTML
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
   });
 }
 
+/**
+ * Removes the default answer buttons and replaces with the answers in question array
+ * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
+ */
 function resetState() {
-  /* Removes the default answer buttons and replaces with the answers in question array
-  source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
   let nextButton = document.getElementById("next-button");
   nextButton.setAttribute('disabled', '');
   let answerButtons = document.getElementById("answer-buttons");
@@ -97,12 +100,14 @@ function restartQuiz() {
   endQuizContainer.classList.add('hide');
 }
 
-//shows colour change to indicate correct/incorrect answer input from user
-//https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
+/**
+ * shows colour change to indicate correct/incorrect answer input from user
+ * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
+ */
 function setStatusClass(element, correct) {
-  clearStatusClass(element);
-  if (correct) {
-    clearStatusClass(element);
+  //clearStatusClass(element);
+  //if (correct) {
+    //clearStatusClass(element);
     if (correct) {
       element.classList.add('correct');
     } else {
@@ -110,11 +115,11 @@ function setStatusClass(element, correct) {
     }
   }
 
-  function clearStatusClass(element) {
-    element.classList.remove('correct');
-    element.classList.remove('incorrect');
-  }
-}
+ // function clearStatusClass(element) {
+   // element.classList.remove('correct');
+    //element.classList.remove('incorrect');
+ // }
+//}
 
 function incrementScore() {
 
