@@ -19,7 +19,7 @@
         <h1><i class="fa-solid fa-graduation-cap"></i>Phrasal Verbs Quiz</h1>
         <h2 id="welcome-heading">Test your knowledge of phrasal verbs related to education and learning.</h2>
     </header>
-    <section class="start-page" id="start-page">
+    <section class="start-page hide" id="start-page">
         <div class="welcome-text" id="welcome-text">
             <h3>What are phrasal verbs?</h3>
             <br>
@@ -48,7 +48,7 @@
             <button aria-label="Start the quiz" class="btn" id="start-quiz-button">Start Quiz</button>
         </div>
     </section>
-    <section class="quiz-container hide" id="quiz-container">
+    <section class="quiz-container " id="quiz-container">
     <div id="quiz-game-area" class="quiz-game-area">
         <div class="question" id="question">Question</div>
         <div id="answer-buttons" class="answer-buttons">
@@ -61,10 +61,19 @@
             <button aria-label="Next question" class="btn next-button" id="next-button"><i class="fa-solid fa-angles-right"></i></button>
         </div>
     </section>
+    <section class="end-quiz-container hide" id="end-quiz-container">
+        <div class="score-div" id="score-div">
+            <i class="fa-solid fa-trophy"></i>
+            <p>Score: 100%</p>
+
+        </div>
+        <div class="restart-btn" id="restart-btn">
+            <button aria-label="restart the quiz" class="btn" id="restart-quiz-button">Restart Quiz</button>
+        </div>
+    </section>
     <!--Font awesome kit-->
     <script src="https://kit.fontawesome.com/f972d991d8.js" crossorigin="anonymous"></script>
     <!--Javascript-->
     <script src="assets/js/script.js"></script>
 </body>
-
 </html>
