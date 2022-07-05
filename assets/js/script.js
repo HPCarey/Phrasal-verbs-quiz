@@ -7,6 +7,8 @@ const startPage = document.getElementById("start-page");
 const quizContainer = document.getElementById("quiz-container");
 const welcomeHeading = document.getElementById("welcome-heading");
 const welcomeText = document.getElementById("welcome-text");
+const restartButton = document.getElementById("restart-quiz-button");
+const endQuizContainer = document.getElementById("end-quiz-container");
 
 let shuffledQuestions;
 let currentQuestionIndex;
@@ -14,6 +16,7 @@ let currentQuestionIndex;
 // event listeners
 startButton.addEventListener('click', runQuiz);
 nextButton.addEventListener('click', renderQuestion);
+restartButton.addEventListener('click', restartQuiz);
 
 
 //functions
@@ -32,6 +35,8 @@ function renderQuestion() {
   resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
   currentQuestionIndex++;
+  //nextQuestionIcon.classList.add("greyscale");
+  //nextQuestionIcon.setAttribute("disabled", "disabled");
 
 }
 
@@ -52,9 +57,9 @@ function displayQuestion(question) {
 }
 
 function resetState() {
-  /* Removes the default answer buttons
+  /* Removes the default answer buttons and replaces with the answers in question array
   source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
-  nextButton.classList.add('hide');
+  nextButton.setAttribute('disabled', '');
   answerButtons.innerHTML = '';
 }
 
@@ -66,20 +71,20 @@ function checkAnswer(e) {
     setStatusClass(button, button.dataset.correct);
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide');
-  } else {
-    nextButton.innerHTML = "End Quiz"; {
+    nextButton.removeAttribute('disabled');
+  } else if (shuffledQuestions.length >= questions.length) {
       nextButton.addEventListener('click', endQuiz());
-    }
   }
 }
 
 function endQuiz() {
   quizContainer.classList.add('hide');
+  endQuizContainer.classList.remove('hide');
+}
+
+function restartQuiz(){
   startPage.classList.remove('hide');
-  welcomeHeading.innerHTML = "End of Quiz";
-  welcomeText.innerHTML = "Final score:";
-  startButton.innerText = 'Restart';
+  endQuizContainer.classList.add('hide');
 }
 
 //shows colour change to indicate correct/incorrect answer input from user
@@ -104,6 +109,7 @@ function setStatusClass(element, correct) {
 function incrementScore() {
 
 }
+
 // Below are questions, options and answers for quiz
 const questions = [{
     question: "Meaning: Learn a new skill through practice rather than study.",
