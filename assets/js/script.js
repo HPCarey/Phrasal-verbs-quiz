@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // define variables to select elements
 let shuffledQuestions = null;
 let currentQuestionIndex = null;
@@ -36,8 +37,15 @@ function renderQuestion() {
   resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
   currentQuestionIndex++;
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    let nextButton = document.getElementById("next-button");
+    nextButton.removeAttribute('disabled');
+  } else if (shuffledQuestions.length == questions.length) {
+    let nextButton = document.getElementById("next-button");
+    nextButton.removeAttribute('disable');
+    nextButton.addEventListener('click', endQuiz());
 }
-
+}
 /**
  * creates a button and sets its content as the options in the questions section.
  *  source https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
@@ -70,20 +78,11 @@ function resetState() {
 }
 
 
-function checkAnswer(e) {
-  const selectButton = e.target;
-  const correct = selectButton.dataset.correct;
+function checkAnswer() {
   let answerButtons = document.getElementById("answer-buttons");
   Array.from(answerButtons.children).forEach(button => {
     setStatusClass(button, button.dataset.correct);
   });
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    let nextButton = document.getElementById("next-button");
-    nextButton.removeAttribute('disabled');
-  } else if (shuffledQuestions.length >= questions.length) {
-    let nextButton = document.getElementById("next-button");
-    nextButton.addEventListener('click', endQuiz());
-  }
 }
 
 function endQuiz() {
@@ -105,22 +104,24 @@ function restartQuiz() {
  * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  */
 function setStatusClass(element, correct) {
-  //clearStatusClass(element);
-  //if (correct) {
-    //clearStatusClass(element);
-    if (correct) {
-      element.classList.add('correct');
-    } else {
-      element.classList.add('incorrect');
-    }
+  clearStatusClass(element);
+  if (correct) {
+  clearStatusClass(element);
+  if (correct) {
+    element.classList.add('correct');
+  } else {
+    element.classList.add('incorrect');
   }
+}
+}
 
- // function clearStatusClass(element) {
-   // element.classList.remove('correct');
-    //element.classList.remove('incorrect');
- // }
-//}
+function clearStatusClass(element) {
+  element.classList.remove('correct');
+  element.classList.remove('incorrect');
+}
+
 
 function incrementScore() {
+ 
 
 }

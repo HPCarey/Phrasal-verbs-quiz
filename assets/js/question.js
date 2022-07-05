@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // Below are questions, options and answers for quiz
 const questions = [{
     question: "Meaning: Learn a new skill through practice rather than study.",
