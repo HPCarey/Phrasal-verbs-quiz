@@ -82,6 +82,7 @@ button {
 }
 .trophy-icon {
     padding-right: 1%;
+    padding-bottom: 3%;
     font-size: 180%;
     color: gold;
   }
@@ -176,7 +177,7 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
         width: 80%;
         position: absolute;
         align-self: center;
-        top: 40%;
+        top: 32%;
     }
 
     .quiz-game-area {
@@ -247,7 +248,7 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 
     .end-quiz-container, .quiz-container {
         position: absolute;
-        top: 35%;
+        top: 28%;
     }
 }
 
@@ -255,9 +256,12 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 @media screen and (max-width: 600px) {
 
     /* adjusts positon of section for slightly narrower screen sizes*/
-    .start-page, .end-quiz-container, .quiz-container {
+    .start-page, .end-quiz-container {
         position: absolute;
         bottom: 0%;
+    }
+    .quiz-container {
+        top: 19%;
     }
 
     header {
@@ -277,12 +281,15 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
         width: 90%;
         margin: 4% auto 2%;
         position: absolute;
-        bottom: 22%;
+        bottom: 16%;
         align-self: center;
     }
 
-    .end-quiz-container, .quiz-container {
-        top: 25%;
+    .quiz-container {
+        top: 19%;
+    }
+    .end-quiz-container {
+        top: 36%;
     }
 
     header {
@@ -332,13 +339,23 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
     .score-div {
         font-size: 180%;
     }
+
+    .question {
+        font-size: 100%;
+    }
+    .trophy-icon {
+        font-size: 120%;
+    }
+    .question-score {
+    font-size: 120%;
+    }
 }
 
 /* Media query for  mobile screens*/
 @media screen and (max-width: 380px) {
 
     /*overwrites position styles for start section in wider screen mobiles*/
-    .start-page, .end-quiz-container {
+    .start-page {
         position: unset;
     }
 
