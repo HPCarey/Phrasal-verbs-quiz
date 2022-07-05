@@ -42,10 +42,11 @@ function renderQuestion() {
     nextButton.removeAttribute('disabled');
   } else if (shuffledQuestions.length == questions.length) {
     let nextButton = document.getElementById("next-button");
-    nextButton.removeAttribute('disable');
+    nextButton.removeAttribute('disabled');
     nextButton.addEventListener('click', endQuiz());
+  }
 }
-}
+
 /**
  * creates a button and sets its content as the options in the questions section.
  *  source https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
@@ -106,13 +107,14 @@ function restartQuiz() {
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
-  clearStatusClass(element);
-  if (correct) {
-    element.classList.add('correct');
-  } else {
-    element.classList.add('incorrect');
+    clearStatusClass(element);
+    if (correct) {
+      element.classList.add('correct');
+      incrementScore();
+    } else {
+      element.classList.add('incorrect');
+    }
   }
-}
 }
 
 function clearStatusClass(element) {
@@ -122,6 +124,7 @@ function clearStatusClass(element) {
 
 
 function incrementScore() {
- 
+  let oldScore = parseInt(document.getElementById("question-score").innerText);
+  document.getElementById("question-score").innerText = ++oldScore;
 
 }
