@@ -141,7 +141,7 @@ Each page's logo features a different sub-heading to provide the user with an ex
             * This error is as a result of having a section for each of the pages of the site whoch are initially hidden with a hide class and implemented after a click event. I included a heading for these sections for good semantic practice, but put it in the hide class as it was not necesarry for the UI.
         * Another error showed an unclosed div which was causing display problems in the deployed site but not in the gitpod browser. Once fixed all display issues were solved.
 
-        ![html validation]()
+        ![html validation](readme/html-validation.png)
             
  
 2. CSS
@@ -151,11 +151,11 @@ Each page's logo features a different sub-heading to provide the user with an ex
 
     * No bugs were found in the CSS at the final tetsing stage as I had been testing throughout development and CSS bugs were common and obvious in the gitpod browser so were quickly identified and fixed.
 
-![CSS validation]()
+![CSS validation](readme/w3c-validation.png)
 
 3. Lighthouse
  * Initial results showed a good accessibility score and good overall scores except for SEO which was 89%.
-    * I fixed this issues by 
+    * I addressed this issue by adding some meta tags to the head of the html document containing a description of the site and some keywords.
 * The ligthouse results for mobile showed the same overall results with a slightly better SEO score of 91%.
 
 #### Lighthouse results
