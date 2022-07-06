@@ -30,6 +30,7 @@ h1 {
 }
 h1 i {
     color: black;
+    padding: 1%;
 }
 
 h2 {
@@ -67,6 +68,7 @@ header {
 
 .welcome-text {
     font-family: 'Nunito', sans-serif;
+    font-size: 80%;
 }
 /* add general styles for buttons*/
 button {
@@ -278,7 +280,7 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
     /* adjusts positon of section for slightly narrower screen sizes*/
     .start-page, .end-quiz-container {
         position: absolute;
-        bottom: 0%;
+        bottom: 9%;
     }
     .quiz-container {
         top: 19%;
@@ -297,11 +299,15 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 
 /* Media query for  mobile screens*/
 @media screen and (max-width: 480px) {
+
+    .fa-graduation-cap {
+        color: gold;
+    }
     .start-page {
         width: 90%;
         margin: 4% auto 2%;
         position: absolute;
-        bottom: 16%;
+        bottom: 24%;
         align-self: center;
     }
 
