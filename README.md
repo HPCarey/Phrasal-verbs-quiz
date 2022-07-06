@@ -136,24 +136,13 @@ Each page's logo features a different sub-heading to provide the user with an ex
 ### Code Validation
 1. HTML
     * HTML validationwas done using [W3C Markup validator](https://validator.w3.org/)
-    * Initial errors for the main page included:
+    * Some initial errors for the quiz section and the results page included:
         * a "section lacks heading" warning: 
-            * This error is as a result of having a section for the hero image and styling the overlay text as a paragraph. Running this through the validator made me realise that this was not good semantic web practice and it would be better to label the text as a header and target the header for styling. This realisation was reinforced by my [lighthouse]() accessibilty results and I began to relaise that I was treating the headings too much as style rules and not enough semanitcally. This caused me to go back and re-label some headings and target them with specific css style rules instead of relying on the general heading style rules I had written in the css. 
-        * a "bad value" for the embedded video for width 100%
-            * I fixed this by removing width and height values from the iframe and styling the video in CSS instead.
-        * an obsolete frameborder attribute for embedded video.
-            * Fixed by removing the attribute. 
-        * a stray end tag </i>
-            * fixed by removing
+            * This error is as a result of having a section for each of the pages of the site whoch are initially hidden with a hide class and implemented after a click event. I included a heading for these sections for good semantic practice, but put it in the hide class as it was not necesarry for the UI.
+        * Another error showed an unclosed div which was causing display problems in the deployed site but not in the gitpod browser. Once fixed all display issues were solved.
 
-
-![index.html](docs/README-images/html-validator.png)
-
-* Initial errors for the community and validation page were:
-    * The same "section lacks heading" warning:
-        * As I saw these errors and began to read about the [section element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) and the semantic importance of having a heading in a section, even if it's visually not required, I decided to give this hero-image section a hidden heading for semantic reasons. The heading is hidden by the content and this actually meets my visual preferences so I kept it like that.
-    * There was also a small id and label error for the form element where they didn't match exactly.       
-
+        ![html validation]()
+            
  
 2. CSS
     * CSS Validation was done using [Jigsaw](https://jigsaw.w3.org/css-validator/)
@@ -162,21 +151,18 @@ Each page's logo features a different sub-heading to provide the user with an ex
 
     * No bugs were found in the CSS at the final tetsing stage as I had been testing throughout development and CSS bugs were common and obvious in the gitpod browser so were quickly identified and fixed.
 
-![CSS](docs/README-images/css-validation.png)
+![CSS validation]()
 
 3. Lighthouse
- * Initial results showed a good accessibility score but improvements could be made based on the order of headings, eg. using an h5 heading in a section without using an h4 element first. 
-    * I fixed this issues by relabelling headings and targeting them for styling specifically in ths css. This improved the accesibility score as well as the best practice score to 100%.
-* The performance results varied depending on how good my connection was at the time of running lighthouse. For desktop the results below range from 82 - 79 and 54 for mobile. The cause for these lower results seems to be loading time for images and embedded video. A quick analysis of this suggests using lazy loading configuration for the iframe. This issue is something I will have to think about more during the development stage next time.     
+ * Initial results showed a good accessibility score and good overall scores except for SEO which was 89%.
+    * I fixed this issues by 
+* The ligthouse results for mobile showed the same overall results with a slightly better SEO score of 91%.
 
-#### Lighthouse initial results
-![Lighthouse initial results](docs/README-images/Lighthouse%20initial%20results.png)  
+#### Lighthouse results
+![Lighthouse results](readme/lighthouse%20report.png)
 
-#### Lighthouse desktop final results
-![Lighthouse desktop](docs/README-images/lighthouse-desktop.png)
-
-#### Lighthouse mobile final results
-![lighthouse mobile](docs/README-images/mobile-lighthouse.png)
+#### Lighthouse mobile results
+![Lighthouse desktop](readme/lighthouse-mobile.png)
 
 ### Fixed bugs
 I have detailed some of the sources I used to fix bugs in the Credit section. Some of the main issues that were resolved were:
