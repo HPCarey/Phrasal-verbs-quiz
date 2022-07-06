@@ -28,6 +28,7 @@ h1 {
     margin-top: 1%;
     color: #f7f6f4
 }
+
 h1 i {
     color: goldenrod;
     padding: 1%;
@@ -51,7 +52,8 @@ header {
 
 /* Welcome text style rules for landing page and end quiz page */
 .start-page,
-.end-quiz-container {
+.end-quiz-container,
+.quiz-game-area {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -60,16 +62,18 @@ header {
     justify-content: center;
     align-items: stretch;
     background: lightblue;
-    border: 7px solid darkblue;
+    border: 7px solid #002147;
     border-radius: 5px;
     margin: 2% auto;
     padding: 1%;
+    box-shadow: 0 0 10px 2px;
 }
 
 .welcome-text {
     font-family: 'Nunito', sans-serif;
     font-size: 80%;
 }
+
 /* add general styles for buttons*/
 button {
     font-size: 160%;
@@ -87,7 +91,7 @@ button {
 button:hover {
     background-color: #002147;
     color: #f7f6f4;
-  }
+}
 
 
 /* start quiz and restart quiz button style*/
@@ -96,22 +100,24 @@ button:hover {
     display: flex;
     justify-content: center;
 }
+
 /*style for score nav on quiz game area*/
 .game-bar {
     display: flex;
     justify-content: flex-end;
 }
+
 .trophy-icon {
     padding-right: 1%;
     padding-bottom: 3%;
     font-size: 180%;
     color: gold;
-  }
+}
 
-  .question-score {
+.question-score {
     font-size: 180%;
     padding-right: 3%;
-  }
+}
 
 /* styles for the score display in the end quiz section*/
 .score-div {
@@ -128,22 +134,6 @@ button:hover {
     padding-right: 3%;
     color: gold;
 
-}
-
-/*quiz-game area styles*/
-.quiz-game-area {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    width: 60%;
-    height: max-content;
-    justify-content: center;
-    align-items: stretch;
-    background: lightblue;
-    border: 7px solid darkblue;
-    border-radius: 5px;
-    margin: 2% auto;
-    padding: 1%;
 }
 
 .question {
@@ -186,14 +176,16 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 /* Media query for  tablet screens*/
 
 @media screen and (max-width: 950px) {
-/* adjust posittion of start section in tablet screen*/
+
+    /* adjust posittion of start section in tablet screen*/
     .start-page {
         width: 80%;
         position: absolute;
         align-self: center;
         bottom: 29%;
     }
-/*adjust position for quiz and end quiz section in tablet screen*/
+
+    /*adjust position for quiz and end quiz section in tablet screen*/
     .end-quiz-container,
     .quiz-container {
         width: 80%;
@@ -205,6 +197,7 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
     .quiz-game-area {
         width: 100%;
     }
+
     header {
         position: absolute;
         align-self: center;
@@ -264,7 +257,8 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
         bottom: 21%;
     }
 
-    .end-quiz-container, .quiz-container {
+    .end-quiz-container,
+    .quiz-container {
         position: absolute;
         top: 28%;
     }
@@ -274,10 +268,12 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 @media screen and (max-width: 600px) {
 
     /* adjusts positon of section for slightly narrower screen sizes*/
-    .start-page, .end-quiz-container {
+    .start-page,
+    .end-quiz-container {
         position: absolute;
         bottom: 9%;
     }
+
     .quiz-container {
         top: 19%;
     }
@@ -306,6 +302,7 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
     .quiz-container {
         top: 19%;
     }
+
     .end-quiz-container {
         top: 36%;
     }
@@ -349,7 +346,8 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 @media screen and (max-width: 400px) {
 
     /* adjusts positon of section for slightly narrower screen sizes*/
-    .start-page .end-quiz-container, .quiz-container {
+    .start-page .end-quiz-container,
+    .quiz-container {
         position: absolute;
         bottom: 17%;
     }
@@ -361,11 +359,13 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
     .question {
         font-size: 100%;
     }
+
     .trophy-icon {
         font-size: 120%;
     }
+
     .question-score {
-    font-size: 120%;
+        font-size: 120%;
     }
 }
 

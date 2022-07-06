@@ -119,6 +119,8 @@ function endQuiz() {
   quizContainer.classList.add('hide');
   let endQuizContainer = document.getElementById("end-quiz-container");
   endQuizContainer.classList.remove('hide');
+  let welcomeHeading = document.getElementById("welcome-heading");
+  welcomeHeading.innerHTML = "That's it! Check out your results:";
 }
 
 function restartQuiz() {
