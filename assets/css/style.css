@@ -29,7 +29,7 @@ h1 {
     color: #f7f6f4
 }
 h1 i {
-    color: black;
+    color: goldenrod;
     padding: 1%;
 }
 
@@ -234,10 +234,6 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
         font-size: 115%;
     }
 
-    button {
-        margin: 7% auto 4%;
-    }
-
     .score-div {
         font-size: 275%;
     }
@@ -299,10 +295,6 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 
 /* Media query for  mobile screens*/
 @media screen and (max-width: 480px) {
-
-    .fa-graduation-cap {
-        color: gold;
-    }
     .start-page {
         width: 90%;
         margin: 4% auto 2%;
