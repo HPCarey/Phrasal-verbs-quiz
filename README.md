@@ -5,6 +5,7 @@ The purpose of this site is to provide a fun, interactive learning tool for Enlg
 
 The quiz is multiple choice so both advanced and lower level speakers can make us of it. Since phrasal verbs are idiomatic they can still pose a challenge to some advanced speakers of English while offering lower level learners a fun way to learn new material.
 
+![Am I Responsive](readme/amiresponsive.png)
 ## User Stories
 ### Intended Users
 The intended user is any person who is a learner of the English language. These can be specified as
@@ -164,6 +165,9 @@ Each page's logo features a different sub-heading to provide the user with an ex
 #### Lighthouse mobile results
 ![Lighthouse desktop](readme/lighthouse-mobile.png)
 
+4. 
+* Javascript validation was done using [JSHint Validator](https://jshint.com/).
+
 ### Fixed bugs
 I have detailed some of the sources I used to fix bugs in the Credit section. Some of the main issues that were resolved were:
 * Centering content in flexbox items
@@ -193,3 +197,10 @@ This website was deployed via Github pages via the folowing steps:
 5. It can take up to 5 minutes to deploy.
 Here is a link to the live [site]().
 ## Credits
+I used the following resources to help me plan, builda and fix bugs in my project.
+
+* This video by the Code Explained channel helped me to think about how to apporach and plan the project. It was really useful for helping to visualise the whole picture as they did a whole planning phase in the video before writing any code. [Create a Multiple Choice Quiz App Using JavaScript](https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=KevinPowell)
+
+* This video by Web Dev Simplified was the main inspiration behind my quiz design. I followed along with his video for many of the features which can also be seen in the JSDoc in the script. I also was inspired by some of the css in this video, for example the box-shadow effect and I liked the display and aesthrtic of this quiz as I also wanted to go with a blue colour scheme. [Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified)
+
+* This article [Set the disabled attribute using javascript](https://bobbyhadz.com/blog/javascript-set-attribute-disabled#:~:text=To%20set%20the%20disabled%20attribute,disabled%20attribute%20to%20the%20element.) helped me to disable buttons that were not needed on the screen. 
