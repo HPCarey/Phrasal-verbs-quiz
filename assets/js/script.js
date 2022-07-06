@@ -85,26 +85,11 @@ function checkAnswer() {
     setStatusClass(button, button.dataset.correct);
   });
 }
-
-function endQuiz() {
-  let quizContainer = document.getElementById("quiz-container");
-  quizContainer.classList.add('hide');
-  let endQuizContainer = document.getElementById("end-quiz-container");
-  endQuizContainer.classList.remove('hide');
-}
-
-function restartQuiz() {
-  let startPage = document.getElementById("start-page");
-  startPage.classList.remove('hide');
-  let endQuizContainer = document.getElementById("end-quiz-container");
-  endQuizContainer.classList.add('hide');
-}
-
 /**
  * shows colour change to indicate correct/incorrect answer input from user
  * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  */
-function setStatusClass(element, correct) {
+ function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
     clearStatusClass(element);
@@ -127,4 +112,18 @@ function incrementScore() {
   let oldScore = parseInt(document.getElementById("question-score").innerText);
   document.getElementById("question-score").innerText = ++oldScore;
 
+}
+
+function endQuiz() {
+  let quizContainer = document.getElementById("quiz-container");
+  quizContainer.classList.add('hide');
+  let endQuizContainer = document.getElementById("end-quiz-container");
+  endQuizContainer.classList.remove('hide');
+}
+
+function restartQuiz() {
+  let startPage = document.getElementById("start-page");
+  startPage.classList.remove('hide');
+  let endQuizContainer = document.getElementById("end-quiz-container");
+  endQuizContainer.classList.add('hide');
 }
