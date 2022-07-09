@@ -128,4 +128,7 @@ function restartQuiz() {
   startPage.classList.remove('hide');
   let endQuizContainer = document.getElementById("end-quiz-container");
   endQuizContainer.classList.add('hide');
+  let welcomeHeading = document.getElementById("welcome-heading");
+  welcomeHeading.innerHTML = "Test your knowledge of phrasal verbs related to education and learning.";
+  
 }

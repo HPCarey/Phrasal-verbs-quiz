@@ -80,7 +80,8 @@ Each page's logo features a different sub-heading to provide the user with an ex
 ## Typography and color scheme
 * The Nunito font was chosen using google fonts because it is simple and readable but also has a softness because of the rounded edges.
 * I used [figma](https://www.figma.com/file/RgYErSjELw326fP4MH6jt4kT/Nunito-Pairings/duplicate?node-id=1%3A198) to check what fonts pair well with Nunita and ended up going with Roboto.
-* I wanted a blue theme to represent education, so I used a darker blue for the background,  a light blue for the quiz container, and chose dark and light coloured fonts to pair with them for readability. The icons used are colored in gold and are symbols of success and learning, the graduation cap and trophy. 
+* I wanted a blue theme to represent education, so I used a darker blue for the background,  a light blue for the quiz container, and chose dark and light coloured fonts to pair with them for readability. 
+* The icons used are colored in gold and are symbols of success and learning, the graduation cap and trophy. 
 
 ===== Before Code/implementation ===
 ## Technology
