@@ -18,8 +18,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 //functions
 
 /**
- * runs quiz 
+ * runs quiz by hiding the start page and removing hide class from the quiz container
  * renders questions and shuffles them so the order is random
+ * changes the heading to match the activity
  * source:https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  */
 
@@ -38,12 +39,12 @@ function runQuiz() {
 function renderQuestion() {
   resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
-  currentQuestionIndex++;
 }
 
 /**
+ * Disables the next button
  * Removes the default answer buttons and replaces with the answers in question array
- * removes disabled from answer buttons once new question is rendered
+ * Removes disabled attribute from answer buttons once new question is rendered
  * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  */
 function resetState() {
@@ -67,18 +68,17 @@ function resetState() {
 
 
 /**
- * creates a button and sets its content as the options in the questions section.
- *  source https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
- * marks the correct answer as correct in the HTML
+ * Creates a button and sets its content as the options in the questions array.
+ * Displays the question.
+ * Marks the correct answer as correct in the HTML
+ * source https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
+ * source https://simplestepscode.com/javascript-quiz-tutorial/
  */
 function displayQuestion(question) {
   let nextButton = document.getElementById("next-button");
-  console.log(nextButton);
   nextButton.setAttribute("disabled", "disabled");
   let questionElement = document.getElementById("question");
-  console.log(questionElement);
   let answerButton1 = document.getElementById("answer-btn-1");
-  console.log(answerButton1);
   let answerButton2 = document.getElementById("answer-btn-2");
   let answerButton3 = document.getElementById("answer-btn-3");
   let answerButton4 = document.getElementById("answer-btn-4");
@@ -95,9 +95,11 @@ function displayQuestion(question) {
 }
 
 /**
- * checks the users answer is correct
- * disables the answer buttons once an answer is selected
- * Bring back the functionality of the next button once answer is picked
+ * Checks the users answer is correct
+ * Disables the answer buttons once an answer is selected
+ * Brings back the functionality of the next button once answer is selescted
+ * Increments questions using next button 
+ * Once all questions have been answered, changes functionality of next button to call endQuiz function
  * @param {c} event 
  */
 function checkAnswer(event) {
@@ -106,12 +108,14 @@ function checkAnswer(event) {
   let answerButton3 = document.getElementById('answer-btn-3');
   let answerButton4 = document.getElementById('answer-btn-4');
   let selectedButton = event.target;
-  let userAnswer = this.value;
+  let userAnswer = selectedButton.innerHTML;
   let rightAnswer = shuffledQuestions[currentQuestionIndex].correctAnswer;
   answerButton1.setAttribute("disabled", "disabled");
   answerButton2.setAttribute("disabled", "disabled");
   answerButton3.setAttribute("disabled", "disabled");
   answerButton4.setAttribute("disabled", "disabled");
+  console.log(`User answer: ${userAnswer}`)
+  console.log(`Right answer: ${rightAnswer}`)
   if (userAnswer === rightAnswer) {
     selectedButton.classList.add('correct');
     incrementScore();
@@ -120,32 +124,31 @@ function checkAnswer(event) {
   }
   if (answerButton1.innerText === rightAnswer) {
     answerButton1.classList.add('correct');
-  } else if (answerButton2.innerText === rightAnswer) {
+} else if (answerButton2.innerText === rightAnswer) {
     answerButton2.classList.add('correct');
-  } else if (answerButton3.innerText === rightAnswer) {
+} else if (answerButton3.innerText === rightAnswer) {
     answerButton3.classList.add('correct');
-  } else if (answerButton4.innerText === rightAnswer) {
+} else if (answerButton4.innerText === rightAnswer) {
     answerButton4.classList.add('correct');
-  }
+}
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     let nextButton = document.getElementById("next-button");
     nextButton.removeAttribute('disabled', '');
+    nextButton.addEventListener('click', currentQuestionIndex++)
   } else if (shuffledQuestions.length == questions.length) {
     let nextButton = document.getElementById("next-button");
     nextButton.addEventListener('click', endQuiz());
   }
 }
 
-
-function clearStatusClass() {}
-
-
-
 function incrementScore() {
   let oldScore = parseInt(document.getElementById("question-score").innerText);
   document.getElementById("question-score").innerText = ++oldScore;
 }
-
+/**
+ * Hides quiz section and displays results page
+ * Changes heading to match content
+ */
 function endQuiz() {
   let quizContainer = document.getElementById("quiz-container");
   quizContainer.classList.add('hide');
@@ -155,6 +158,10 @@ function endQuiz() {
   welcomeHeading.innerHTML = "That's it! Check out your results:";
 }
 
+/**
+ * Removes hide class for start page and hides endQuiz container with results
+ * Reverts the heading text back to the original heading on strt page
+ */
 function restartQuiz() {
   let startPage = document.getElementById("start-page");
   startPage.classList.remove('hide');
