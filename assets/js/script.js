@@ -106,7 +106,7 @@ function checkAnswer(event) {
   let answerButton3 = document.getElementById('answer-btn-3');
   let answerButton4 = document.getElementById('answer-btn-4');
   let selectedButton = event.target;
-  let userAnswer = selectedButton.innerHTML;
+  let userAnswer = this.value;
   let rightAnswer = shuffledQuestions[currentQuestionIndex].correctAnswer;
   answerButton1.setAttribute("disabled", "disabled");
   answerButton2.setAttribute("disabled", "disabled");
@@ -115,52 +115,35 @@ function checkAnswer(event) {
   if (userAnswer === rightAnswer) {
     selectedButton.classList.add('correct');
     incrementScore();
-    currentQuestionIndex++;
   } else {
     selectedButton.classList.add('incorrect');
-    if (answerButton1.innerHTML === rightAnswer) {
-      answerButton1.classList.add('correct');
-    } else if (answerButton2.innerHTML === rightAnswer) {
-      answerButton2.classList.add('correct');
-    } else if (answerButton3.innerHTML === rightAnswer) {
-      answerButton3.classList.add('correct');
-    } else if (answerButton4.innerHTML === rightAnswer) {
-      answerButton4.classList.add('correct');
-    }
   }
-
-  let nextButton = document.getElementById("next-button");
-  nextButton.removeAttribute("disabled", "disabled");
+  if (answerButton1.innerText === rightAnswer) {
+    answerButton1.classList.add('correct');
+  } else if (answerButton2.innerText === rightAnswer) {
+    answerButton2.classList.add('correct');
+  } else if (answerButton3.innerText === rightAnswer) {
+    answerButton3.classList.add('correct');
+  } else if (answerButton4.innerText === rightAnswer) {
+    answerButton4.classList.add('correct');
+  }
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    let nextButton = document.getElementById("next-button");
+    nextButton.removeAttribute('disabled', '');
+  } else if (shuffledQuestions.length == questions.length) {
+    let nextButton = document.getElementById("next-button");
+    nextButton.addEventListener('click', endQuiz());
+  }
 }
 
 
+function clearStatusClass() {}
 
-/**
- * shows colour change to indicate correct/incorrect answer input from user
- * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
- */
-/* function setStatusClass(element, correct) {
-  clearStatusClass(element);
-   if (correct) {
-     clearStatusClass(element);
-     if (correct) {
-       element.classList.add('correct');
-       incrementScore();
-     } else {
-       element.classList.add('incorrect');
-     }
-   }
- }*/
-
-function clearStatusClass() {
-}
-  
 
 
 function incrementScore() {
   let oldScore = parseInt(document.getElementById("question-score").innerText);
   document.getElementById("question-score").innerText = ++oldScore;
-
 }
 
 function endQuiz() {
