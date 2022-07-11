@@ -2,6 +2,7 @@
 // define variables to select elements
 let shuffledQuestions = null;
 let currentQuestionIndex = null;
+let selectedButton = null;
 
 // event listeners
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -38,23 +39,32 @@ function renderQuestion() {
   resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
   currentQuestionIndex++;
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    let nextButton = document.getElementById("next-button");
-    nextButton.removeAttribute('disabled');
-  } else if (shuffledQuestions.length == questions.length) {
-    let nextButton = document.getElementById("next-button");
-    nextButton.addEventListener('click', endQuiz());
-  }
 }
 
 /**
  * Removes the default answer buttons and replaces with the answers in question array
+ * removes disabled from answer buttons once new question is rendered
  * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  */
 function resetState() {
   let nextButton = document.getElementById("next-button");
   nextButton.setAttribute('disabled', '');
+  let answerButtons = document.getElementsByClassName("btn");
+  console.log(answerButtons);
+  for (let i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].classList.remove("correct");
+    answerButtons[i].classList.remove("incorrect");
+  }
+  let answerButton1 = document.getElementById('answer-btn-1');
+  let answerButton2 = document.getElementById('answer-btn-2');
+  let answerButton3 = document.getElementById('answer-btn-3');
+  let answerButton4 = document.getElementById('answer-btn-4');
+  answerButton1.removeAttribute("disabled", "disabled");
+  answerButton2.removeAttribute("disabled", "disabled");
+  answerButton3.removeAttribute("disabled", "disabled");
+  answerButton4.removeAttribute("disabled", "disabled");
 }
+
 
 /**
  * creates a button and sets its content as the options in the questions section.
@@ -62,6 +72,9 @@ function resetState() {
  * marks the correct answer as correct in the HTML
  */
 function displayQuestion(question) {
+  let nextButton = document.getElementById("next-button");
+  console.log(nextButton);
+  nextButton.setAttribute("disabled", "disabled");
   let questionElement = document.getElementById("question");
   console.log(questionElement);
   let answerButton1 = document.getElementById("answer-btn-1");
@@ -78,8 +91,7 @@ function displayQuestion(question) {
   answerButton2.onclick = checkAnswer;
   answerButton3.onclick = checkAnswer;
   answerButton4.onclick = checkAnswer;
-  let nextButton = document.getElementById("next-button");
-  nextButton.setAttribute('disabled', '');
+
 }
 
 /**
@@ -94,26 +106,25 @@ function checkAnswer(event) {
   let answerButton3 = document.getElementById('answer-btn-3');
   let answerButton4 = document.getElementById('answer-btn-4');
   let selectedButton = event.target;
-  let userAnswer = selectedButton.innerText;
+  let userAnswer = selectedButton.innerHTML;
   let rightAnswer = shuffledQuestions[currentQuestionIndex].correctAnswer;
   answerButton1.setAttribute("disabled", "disabled");
   answerButton2.setAttribute("disabled", "disabled");
   answerButton3.setAttribute("disabled", "disabled");
   answerButton4.setAttribute("disabled", "disabled");
-
   if (userAnswer === rightAnswer) {
     selectedButton.classList.add('correct');
     incrementScore();
     currentQuestionIndex++;
   } else {
     selectedButton.classList.add('incorrect');
-    if (answerButton1.innerText === rightAnswer) {
+    if (answerButton1.innerHTML === rightAnswer) {
       answerButton1.classList.add('correct');
-    } else if (answerButton2.innerText === rightAnswer) {
+    } else if (answerButton2.innerHTML === rightAnswer) {
       answerButton2.classList.add('correct');
-    } else if (answerButton3.innerText === rightAnswer) {
+    } else if (answerButton3.innerHTML === rightAnswer) {
       answerButton3.classList.add('correct');
-    } else if (answerButton4.innerText === rightAnswer) {
+    } else if (answerButton4.innerHTML === rightAnswer) {
       answerButton4.classList.add('correct');
     }
   }
@@ -141,10 +152,9 @@ function checkAnswer(event) {
    }
  }*/
 
-function clearStatusClass(element) {
-  element.classList.remove('correct');
-  element.classList.remove('incorrect');
+function clearStatusClass() {
 }
+  
 
 
 function incrementScore() {
