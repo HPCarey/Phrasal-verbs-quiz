@@ -42,9 +42,9 @@ function renderQuestion() {
 }
 
 /**
- * Disables the next button
- * Removes the default answer buttons and replaces with the answers in question array
- * Removes disabled attribute from answer buttons once new question is rendered
+ * Disables the next button.
+ * Removes disabled attribute from answer buttons once new question is rendered.
+ * Removes the correct or incorrect class from th answer buttons hence removing the colour red or green.
  * source: https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  */
 function resetState() {
@@ -70,7 +70,7 @@ function resetState() {
 /**
  * Creates a button and sets its content as the options in the questions array.
  * Displays the question.
- * Marks the correct answer as correct in the HTML
+ * Gives answer buttons onclick feature to call checkAnswer function.
  * source https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  * source https://simplestepscode.com/javascript-quiz-tutorial/
  */
@@ -91,7 +91,6 @@ function displayQuestion(question) {
   answerButton2.onclick = checkAnswer;
   answerButton3.onclick = checkAnswer;
   answerButton4.onclick = checkAnswer;
-
 }
 
 /**
@@ -114,8 +113,6 @@ function checkAnswer(event) {
   answerButton2.setAttribute("disabled", "disabled");
   answerButton3.setAttribute("disabled", "disabled");
   answerButton4.setAttribute("disabled", "disabled");
-  console.log(`User answer: ${userAnswer}`)
-  console.log(`Right answer: ${rightAnswer}`)
   if (userAnswer === rightAnswer) {
     selectedButton.classList.add('correct');
     incrementScore();
@@ -134,17 +131,20 @@ function checkAnswer(event) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     let nextButton = document.getElementById("next-button");
     nextButton.removeAttribute('disabled', '');
-    nextButton.addEventListener('click', currentQuestionIndex++)
-  } else if (shuffledQuestions.length == questions.length) {
+    nextButton.addEventListener('click', currentQuestionIndex++);
+  } else {
     let nextButton = document.getElementById("next-button");
+    nextButton.removeAttribute('disabled', '');
     nextButton.addEventListener('click', endQuiz());
   }
 }
+
 
 function incrementScore() {
   let oldScore = parseInt(document.getElementById("question-score").innerText);
   document.getElementById("question-score").innerText = ++oldScore;
 }
+
 /**
  * Hides quiz section and displays results page
  * Changes heading to match content
@@ -156,8 +156,15 @@ function endQuiz() {
   endQuizContainer.classList.remove('hide');
   let welcomeHeading = document.getElementById("welcome-heading");
   welcomeHeading.innerHTML = "That's it! Check out your results:";
+  scoreRender();
 }
 
+function scoreRender() {
+  let finalScore = parseInt(document.getElementById("question-score").innerText);
+  let userScore = document.getElementById('score-div');
+  let scorePercent = Math.round(100 * finalScore / questions.length);
+  userScore.innerHTML += "<p>"+ scorePercent +"%</p>";
+}
 /**
  * Removes hide class for start page and hides endQuiz container with results
  * Reverts the heading text back to the original heading on strt page

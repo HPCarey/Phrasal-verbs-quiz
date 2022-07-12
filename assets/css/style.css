@@ -88,7 +88,7 @@ button {
     padding: 1%;
 }
 
-button:hover {
+.btn:hover {
     background-color: #002147;
     color: #f7f6f4;
 }
@@ -167,10 +167,13 @@ https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 
 .correct {
     background-color: green;
+    color: black;
+    
 }
 
 .incorrect {
     background-color: red;
+    color: black;
 }
 
 /* Media query for  tablet screens*/

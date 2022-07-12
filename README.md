@@ -173,7 +173,7 @@ Each page's logo features a different sub-heading to provide the user with an ex
 ### Fixed bugs
 I have detailed some of the sources I used to fix bugs in the Credit section. Some of the main issues that were resolved were:
 * Answers were not displaying in the answer button and the error in the console was: cannot set property innerhtml of null. So I ran console.log on the first button and it was undefined. I did some google searching to see why that might be because my id was definitely correct This [website](https://bobbyhadz.com/blog/javascript-cannot-set-property-innerhtml-of-null#:~:text=To%20resolve%20the%20%22Cannot%20set,not%20present%20in%20the%20DOM.) provided some explanations and through process of elimination I decided to remove the div container id and that solved the issue. 
-* Making flexbox items equal width despite content amount.
+* Correct/Incorrect class was not being removed fromanswer buttons once new question was rendered. I ran console.log on the answer buttons and saw that I was targeting them using their individual ids so I could see from the console that it was better to target them by class.
 * Pusing content to the bottom of a flex item.
 * Ensuring flex items wrap under 1030 px depsite display: flex, flex: 1; being applied to make flex items equal width. 
 * A horizontal scroll bar which was the result of using a fixed width on elements instead of using ems or %.
