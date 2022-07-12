@@ -140,7 +140,7 @@ button {
     font-size: 150%;
 }
 
-/* display grid style for questions is from this source
+/* display grid style for answers is from this source
 https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified*/
 .answer-buttons {
     display: grid;

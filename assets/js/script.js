@@ -14,15 +14,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
 });
 
-//functions
-
 /**
  * runs quiz by hiding the start page and removing hide class from the quiz container
- * renders questions and shuffles them so the order is random
+ * renders questions and shuffles them so the order is random: source:https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  * changes the heading to match the activity
- * source:https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
  */
-
 function runQuiz() {
   let startPage = document.getElementById("start-page");
   startPage.classList.add('hide');
@@ -35,6 +31,10 @@ function runQuiz() {
   renderQuestion();
 }
 
+/**
+ * calls resetState function to reset results of user's actions in previous question.
+ * displays the next question in a random order
+ */
 function renderQuestion() {
   resetState();
   displayQuestion(shuffledQuestions[currentQuestionIndex]);
@@ -50,7 +50,6 @@ function resetState() {
   let nextButton = document.getElementById("next-button");
   nextButton.setAttribute('disabled', '');
   let answerButtons = document.getElementsByClassName("btn");
-  console.log(answerButtons);
   for (let i = 0; i < answerButtons.length; i++) {
     answerButtons[i].classList.remove("correct");
     answerButtons[i].classList.remove("incorrect");
@@ -93,10 +92,10 @@ function displayQuestion(question) {
 }
 
 /**
- * Checks the users answer is correct
+ * Checks the user's answer is correct
  * Disables the answer buttons once an answer is selected
- * Brings back the functionality of the next button once answer is selescted
- * Increments questions using next button 
+ * Brings back the functionality of the next button once answer is selected
+ * Renders next question questions using next button 
  * Once all questions have been answered, changes functionality of next button to call endQuiz function
  * @param {c} event 
  */
@@ -157,6 +156,7 @@ function endQuiz() {
   welcomeHeading.innerHTML = "That's it! Check out your results:";
   scoreRender();
 }
+
 /**
  * Calculates the user's final results as a percentage
  * Source: https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=KevinPowell
@@ -167,12 +167,12 @@ function scoreRender() {
   let scorePercent = Math.round(100 * finalScore / questions.length);
   userScore.innerHTML += "<p>" + scorePercent + "%</p>";
 }
+
 /**
- * Removes hide class for start page and hides endQuiz container with results
+ * Removes hide class for start page and hides endQuiz container 
  * Reverts the heading text back to the original heading on start page
  * Resets the user's score.
- * Resets the user's % result by removing the last child of the score div.
- * https://www.w3schools.com/jsref/met_element_remove.asp
+ * Resets the user's % result by removing the last child of the score div: source https://www.w3schools.com/jsref/met_element_remove.asp
  */
 function restartQuiz() {
   let startPage = document.getElementById("start-page");
