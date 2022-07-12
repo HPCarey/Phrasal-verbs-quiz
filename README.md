@@ -1,7 +1,7 @@
 # Phrasal Verb Quiz
 Visit the live website [here](https://hpcarey.github.io/Phrasal-verbs-quiz/)
 ## Purpose of the project
-The purpose of this site is to provide a fun, interactive learning tool for Enlglish language learners. The phrasal verb quiz tests users knowledge of phrasal verbs related to education and learning.
+The purpose of this site is to provide a fun, interactive learning tool for Enlglish language learners. The phrasal verb quiz tests user's knowledge of phrasal verbs related to education and learning.
 
 The quiz is multiple choice so both advanced and lower level speakers can make us of it. Since phrasal verbs are idiomatic they can still pose a challenge to some advanced speakers of English while offering lower level learners a fun way to learn new material.
 
@@ -50,7 +50,7 @@ Each page's logo features a different sub-heading to provide the user with an ex
 
 #### Landing page
 * The landing page features a quick explanation about phrasal verbs and a start button.
-* All buttons have a hover feature to help user's identify when the cursor is in contact with the button.
+* All buttons have a hover feature to help users identify when the cursor is in contact with the button.
 
 ![landing page](readme/wireframes/landing-page.png)
 
@@ -131,7 +131,7 @@ Each page's logo features a different sub-heading to provide the user with an ex
 
 ### Code Validation
 1. HTML
-* HTML validationwas done using [W3C Markup validator](https://validator.w3.org/)
+* HTML validation was done using [W3C Markup validator](https://validator.w3.org/)
  * Some initial errors for the quiz section and the results page included:
      * A "section lacks heading" warning: 
         * This error is as a result of having a section for each of the pages of the site which are initially hidden with a hide class and implemented after a click event. To address this, I included a heading for these sections for good semantic practice, but put it in the hide class as it was not necesarry for the UI.
@@ -180,12 +180,12 @@ Each page's logo features a different sub-heading to provide the user with an ex
 
 ### Fixed bugs
 I have detailed some of the sources I used to fix bugs in the Credit section. Some of the main issues that were resolved were:
-* Answers were not displaying in the answer button and the error in the console was: cannot set property innerhtml of null. 
+* Answers were not displaying in the answer button and the error in the console was showing in the displayQuestion function: cannot set property innerhtml of null. 
     * I ran console.log on the first button and it was undefined. I did some google searching to see why that might be because my id was definitely correct.
     * This [website](https://bobbyhadz.com/blog/javascript-cannot-set-property-innerhtml-of-null#:~:text=To%20resolve%20the%20%22Cannot%20set,not%20present%20in%20the%20DOM.) provided some explanations and through process of elimination I decided to remove the div container id and that solved the issue. 
 
 * The biggest bug that took quite a bit of time to work out was that the wrong answers were being displayed as correct answers. In the console it sometimes showed that the correct answer for a question wasn't even in the options. 
-    * I couldn't understand for along time what was going on and was focusing all my attention on the checkAnswer function. It was only after going to tutor support that the tutor Alex was able to identitify that the issue was the currentQuestionIndex++ in the renderQuestion function. 
+    * I couldn't understand for a long time what was going on and was focusing all my attention on the checkAnswer function. It was only after going to tutor support that the tutor Alex was able to identitify that the issue was the currentQuestionIndex++ in the renderQuestion function. 
     * Once I removed this it solved the problem of the correct answer being identified but then the next question wasn't being rendered.
     * I added currentQuestionIndex++ to the next button event listener in the checkAnswer function and that resolved the question render bug. 
 
@@ -212,7 +212,7 @@ This website was deployed via Github pages via the folowing steps:
 5. It can take up to 5 minutes to deploy.
 Here is a link to the live [site](https://hpcarey.github.io/Phrasal-verbs-quiz/).
 ## Credits
-I used the following resources to help me plan, builda and fix bugs in my project.
+I used the following resources to help me plan, build and fix bugs in my project.
 
 * This video: [Create a Multiple Choice Quiz App Using JavaScript](https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=KevinPowell)
 by the Code Explained channel helped me to think about how to apporach and plan the project. It was really useful for helping to visualise the whole picture as they did a whole planning phase in the video before writing any code. It also showed me the basis of the code I would need to calculate and display a percentage result of the user's score at the end of the quiz.
