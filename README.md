@@ -201,8 +201,11 @@ Here is a link to the live [site]().
 ## Credits
 I used the following resources to help me plan, builda and fix bugs in my project.
 
-* This video by the Code Explained channel helped me to think about how to apporach and plan the project. It was really useful for helping to visualise the whole picture as they did a whole planning phase in the video before writing any code. [Create a Multiple Choice Quiz App Using JavaScript](https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=KevinPowell)
+* This video: [Create a Multiple Choice Quiz App Using JavaScript](https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=KevinPowell)
+by the Code Explained channel helped me to think about how to apporach and plan the project. It was really useful for helping to visualise the whole picture as they did a whole planning phase in the video before writing any code. It also showed me the basis of the code I would need to calculate and display a percentage result of the user's score at the end of the quiz.
 
-* This video by Web Dev Simplified was the main inspiration behind my quiz design. I followed along with his video for many of the features which can also be seen in the JSDoc in the script. I also was inspired by some of the css in this video, for example the box-shadow effect and I liked the display and aesthrtic of this quiz as I also wanted to go with a blue colour scheme. [Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified)
+* This video: [Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified) by Web Dev Simplified was the main inspiration behind my quiz design. I followed along with his video for many of the features which can also be seen in the JSDoc in the script. I also was inspired by some of the css in this video, for example the box-shadow effect and I liked the display and aesthrtic of this quiz as I also wanted to go with a blue colour scheme. 
 
 * This article [Set the disabled attribute using javascript](https://bobbyhadz.com/blog/javascript-set-attribute-disabled#:~:text=To%20set%20the%20disabled%20attribute,disabled%20attribute%20to%20the%20element.) helped me to disable buttons that were not needed on the screen. 
+
+* This from [w3schools.com](https://www.w3schools.com/js/js_htmldom_html.asp) article on changing the innerHTML of an element which is a feature I used a lot throughout the project. I used this site a lot to troubleshoot errors or search for solutions about how to do something.

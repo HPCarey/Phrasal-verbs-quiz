@@ -121,13 +121,13 @@ function checkAnswer(event) {
   }
   if (answerButton1.innerText === rightAnswer) {
     answerButton1.classList.add('correct');
-} else if (answerButton2.innerText === rightAnswer) {
+  } else if (answerButton2.innerText === rightAnswer) {
     answerButton2.classList.add('correct');
-} else if (answerButton3.innerText === rightAnswer) {
+  } else if (answerButton3.innerText === rightAnswer) {
     answerButton3.classList.add('correct');
-} else if (answerButton4.innerText === rightAnswer) {
+  } else if (answerButton4.innerText === rightAnswer) {
     answerButton4.classList.add('correct');
-}
+  }
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     let nextButton = document.getElementById("next-button");
     nextButton.removeAttribute('disabled', '');
@@ -158,16 +158,22 @@ function endQuiz() {
   welcomeHeading.innerHTML = "That's it! Check out your results:";
   scoreRender();
 }
-
+/**
+ * Calculates the user's final results as a percentage
+ * Source: https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=KevinPowell
+ */
 function scoreRender() {
   let finalScore = parseInt(document.getElementById("question-score").innerText);
   let userScore = document.getElementById('score-div');
   let scorePercent = Math.round(100 * finalScore / questions.length);
-  userScore.innerHTML += "<p>"+ scorePercent +"%</p>";
+  userScore.innerHTML += "<p>" + scorePercent + "%</p>";
 }
 /**
  * Removes hide class for start page and hides endQuiz container with results
- * Reverts the heading text back to the original heading on strt page
+ * Reverts the heading text back to the original heading on start page
+ * Resets the user's score.
+ * Resets the user's % result by removing the last child of the score div.
+ * https://www.w3schools.com/jsref/met_element_remove.asp
  */
 function restartQuiz() {
   let startPage = document.getElementById("start-page");
@@ -177,4 +183,6 @@ function restartQuiz() {
   let welcomeHeading = document.getElementById("welcome-heading");
   welcomeHeading.innerHTML = "Test your knowledge of phrasal verbs related to education and learning.";
   document.getElementById("question-score").innerHTML = 0;
+  let scorePercent = document.getElementById("score-div").lastChild;
+  scorePercent.remove();
 }
