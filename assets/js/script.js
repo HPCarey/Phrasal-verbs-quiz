@@ -2,7 +2,6 @@
 // define variables to select elements
 let shuffledQuestions = null;
 let currentQuestionIndex = null;
-let selectedButton = null;
 
 // event listeners
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -31,7 +30,7 @@ function runQuiz() {
   quizContainer.classList.remove('hide');
   let welcomeHeading = document.getElementById("welcome-heading");
   welcomeHeading.innerHTML = "Choose the correct phrasal verb:";
-  shuffledQuestions = questions.sort(() => Math.random() - .5);
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   renderQuestion();
 }
