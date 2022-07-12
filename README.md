@@ -97,9 +97,8 @@ Each page's logo features a different sub-heading to provide the user with an ex
 * [Balsamiq](https://balsamiq.com/wireframes/)
 * [Github](https://github.com/)
 * [Gitpod](https://gitpod.io/)
-* [Eightshapes](https://contrast-grid.eightshapes.com/)
-* [Colour Palette](docs/README-images/colour-palette.png)
-* [rgbacolorpicker](https://rgbacolorpicker.com/hex-to-rgba)
+* [favicon.io](https://favicon.io/emoji-favicons/)
+* [figma](https://www.figma.com/file/RgYErSjELw326fP4MH6jt4kT/Nunito-Pairings/duplicate?node-id=1%3A198)
 * [Am I responsive](https://ui.dev/amiresponsive)
 ## Testing
 ### User Stories
@@ -136,7 +135,7 @@ Each page's logo features a different sub-heading to provide the user with an ex
  * Some initial errors for the quiz section and the results page included:
      * A "section lacks heading" warning: 
         * This error is as a result of having a section for each of the pages of the site which are initially hidden with a hide class and implemented after a click event. To address this, I included a heading for these sections for good semantic practice, but put it in the hide class as it was not necesarry for the UI.
-    * Another error showed an unclosed div which was causing display problems in the deployed site but not in the gitpod browser. Once fixed all display issues were solved.
+    * Another error showed an unclosed div which was causing display problems in the deployed site but not in the gitpod browser. Once fixed all display issues were resolved.
 
 ![html validation](readme/html-validation.png)
             
@@ -165,13 +164,13 @@ Each page's logo features a different sub-heading to provide the user with an ex
 #### Lighthouse mobile final results
 ![Lighthouse mobile final results](readme/lighthouse-final-mobile.png)
 
-4. JSHint
+4. Javascript
 * Javascript validation was done using [JSHint Validator](https://jshint.com/).
 * Upon testing there were not that many errors as I had been using JSHint throughout to check for and fix bugs. The initial results showed one warning and one error as follows:
     * Warning: A leading decimal point can be confused with a dot: '.5'. This had not been affecting my output in any way so I didn't address it until the end. A quick google search showed that putting a 0 in front of the . will solve this issue.
     * One unused variable: selectedButton. I saw that I redeclared selectedButton inside whatever function it was in so there was no need to declare it at the top with a null value.
 * Some common errors that came up throughout the project in JSHint were unused variables, missing semi-colons and unclosed functions.
-* I also used console log and the error messages console in chrome devtools to resolve bugs along the way.   
+* I also used console log and the error messages that would display in the console in chrome devtools to resolve bugs along the way.   
 #### JSHint initial results
 ![JSHint initial results](readme/jshint-initial.png)
 
@@ -181,13 +180,20 @@ Each page's logo features a different sub-heading to provide the user with an ex
 
 ### Fixed bugs
 I have detailed some of the sources I used to fix bugs in the Credit section. Some of the main issues that were resolved were:
-* Answers were not displaying in the answer button and the error in the console was: cannot set property innerhtml of null. So I ran console.log on the first button and it was undefined. I did some google searching to see why that might be because my id was definitely correct This [website](https://bobbyhadz.com/blog/javascript-cannot-set-property-innerhtml-of-null#:~:text=To%20resolve%20the%20%22Cannot%20set,not%20present%20in%20the%20DOM.) provided some explanations and through process of elimination I decided to remove the div container id and that solved the issue. 
+* Answers were not displaying in the answer button and the error in the console was: cannot set property innerhtml of null. 
+    * I ran console.log on the first button and it was undefined. I did some google searching to see why that might be because my id was definitely correct.
+    * This [website](https://bobbyhadz.com/blog/javascript-cannot-set-property-innerhtml-of-null#:~:text=To%20resolve%20the%20%22Cannot%20set,not%20present%20in%20the%20DOM.) provided some explanations and through process of elimination I decided to remove the div container id and that solved the issue. 
 
-* The biggest bug that took quite a bit of time to work out was that the wrong answers were being displayed as correct answers. In the console it sometimes showed that the correct answer for a question wsn't even in the options. I couldn't understand for along time what was going on and was focusing all my attention on the checkAnswer function. It was only after going to tutor support that the issue was the currentQuestionIndex++ in the renderQuestion function. Once I removed this it solved the problem of the correct answer being identified but didn't render thenext question. I added currentQuestionIndex++ to the next button event listener in the checkAnswer function and that resolved the question render bug. 
+* The biggest bug that took quite a bit of time to work out was that the wrong answers were being displayed as correct answers. In the console it sometimes showed that the correct answer for a question wasn't even in the options. 
+    * I couldn't understand for along time what was going on and was focusing all my attention on the checkAnswer function. It was only after going to tutor support that the tutor Alex was able to identitify that the issue was the currentQuestionIndex++ in the renderQuestion function. 
+    * Once I removed this it solved the problem of the correct answer being identified but then the next question wasn't being rendered.
+    * I added currentQuestionIndex++ to the next button event listener in the checkAnswer function and that resolved the question render bug. 
 
-* Correct/Incorrect class was not being removed from answer buttons once new question was rendered. I ran console.log on the answer buttons and saw that I was targeting them using their individual ids so I could see from the console that it was better to target them by class.
+* Correct/Incorrect class was not being removed from answer buttons once new question was rendered. I ran console.log on the answer buttons and saw that I was targeting them using their individual ids, so I could see from the console that it was better to target them by class.
 
-* The final bug was that the score and result from previous games would be continued in the next game if the user clicked restart. To fix the score I just had to edit the innerHTML of the score element. However the code to calculate the result was a bit more complicated and involved inserting a paragrapg element. I had to figure out how to that specific paragraph element and remove it once the restart function was called. Details of this are in the credit section.
+* The score and result from previous games would be continued in the next game if the user clicked restart.
+    * To fix the score I just had to edit the innerHTML of the score element. 
+    * The code to calculate the result was a bit more complicated and involved inserting a paragrapg element. I had to figure out how to target that specific paragraph element and remove it once the restart function was called. Details of this are in the credit section.
 
 
 ### Unfixed bugs
@@ -222,3 +228,4 @@ by the Code Explained channel helped me to think about how to apporach and plan 
     
     * This [article](https://www.w3schools.com/js/js_htmldom_html.asp)  on changing the innerHTML of an element. I used this throughout my code.
     * This [article](https://www.w3schools.com/jsref/met_element_remove.asp) on removing an element and [this](https://www.w3schools.com/jsref/prop_node_lastchild.asp) one on targeting the last child helped me to write the code to reset the calculated result at the end of the quiz.
+* I'd also like to mention that I received invaluable advice and help from members on the CI slack community, from tutors and from my mentor.
