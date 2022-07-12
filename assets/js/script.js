@@ -176,5 +176,5 @@ function restartQuiz() {
   endQuizContainer.classList.add('hide');
   let welcomeHeading = document.getElementById("welcome-heading");
   welcomeHeading.innerHTML = "Test your knowledge of phrasal verbs related to education and learning.";
-
+  document.getElementById("question-score").innerHTML = 0;
 }
