@@ -13,7 +13,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
   restartButton.addEventListener('click', restartQuiz);
   console.log('DOM fully loaded and parsed');
 });
+function hasTouch() {
+  return 'ontouchstart' in document.documentElement
+         || navigator.maxTouchPoints > 0
+         || navigator.msMaxTouchPoints > 0;
+}
 
+if (hasTouch()) { // remove all the :hover stylesheets
+  try { // prevent exception on browsers not supporting DOM styleSheets properly
+    for (var si in document.styleSheets) {
+      var styleSheet = document.styleSheets[si];
+      if (!styleSheet.rules) continue;
+
+      for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+        if (!styleSheet.rules[ri].selectorText) continue;
+
+        if (styleSheet.rules[ri].selectorText.match(':hover')) {
+          styleSheet.deleteRule(ri);
+        }
+      }
+    }
+  } catch (ex) {}
+}
+ 
 /**
  * runs quiz by hiding the start page and removing hide class from the quiz container
  * renders questions and shuffles them so the order is random: source:https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
