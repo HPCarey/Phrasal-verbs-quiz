@@ -13,28 +13,40 @@ window.addEventListener('DOMContentLoaded', (event) => {
   restartButton.addEventListener('click', restartQuiz);
   console.log('DOM fully loaded and parsed');
 });
-function hasTouch() {
-  return 'ontouchstart' in document.documentElement
-         || navigator.maxTouchPoints > 0
-         || navigator.msMaxTouchPoints > 0;
+/**
+ * Removes the hover effect for touch screens.
+ * This entire function was copied from the source below:
+ * https://stackoverflow.com/questions/23885255/how-to-remove-ignore-hover-css-style-on-touch-devices
+ * @returns 
+ */
+function watchForHover() {
+  // lastTouchTime is used for ignoring emulated mousemove events
+  // that are fired after touchstart events. Since they're
+  // indistinguishable from real events, we use the fact that they're
+  // fired a few milliseconds after touchstart to filter them.
+  let lastTouchTime = 0
+
+  function enableHover() {
+    if (new Date() - lastTouchTime < 500) return
+    document.body.classList.add('hasHover')
+  }
+
+  function disableHover() {
+    document.body.classList.remove('hasHover')
+  }
+
+  function updateLastTouchTime() {
+    lastTouchTime = new Date()
+  }
+
+  document.addEventListener('touchstart', updateLastTouchTime, true)
+  document.addEventListener('touchstart', disableHover, true)
+  document.addEventListener('mousemove', enableHover, true)
+
+  enableHover()
 }
 
-if (hasTouch()) { // remove all the :hover stylesheets
-  try { // prevent exception on browsers not supporting DOM styleSheets properly
-    for (var si in document.styleSheets) {
-      var styleSheet = document.styleSheets[si];
-      if (!styleSheet.rules) continue;
-
-      for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
-        if (!styleSheet.rules[ri].selectorText) continue;
-
-        if (styleSheet.rules[ri].selectorText.match(':hover')) {
-          styleSheet.deleteRule(ri);
-        }
-      }
-    }
-  } catch (ex) {}
-}
+watchForHover()
  
 /**
  * runs quiz by hiding the start page and removing hide class from the quiz container

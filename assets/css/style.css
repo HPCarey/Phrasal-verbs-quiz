@@ -88,7 +88,7 @@ button {
     padding: 1%;
 }
 
-.btn:hover {
+body.hasHover .btn:hover {
     background-color: #002147;
     color: #f7f6f4;
 }
