@@ -163,11 +163,13 @@ function checkAnswer(event) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     let nextButton = document.getElementById("next-button");
     nextButton.removeAttribute('disabled', '');
-    nextButton.addEventListener('click', currentQuestionIndex++);
+    currentQuestionIndex++;
   } else {
     let nextButton = document.getElementById("next-button");
     nextButton.removeAttribute('disabled', '');
     nextButton.addEventListener('click', endQuiz());
+    console.log(nextButton);
+    
   }
 }
 
