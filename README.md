@@ -222,10 +222,11 @@ by the Code Explained channel helped me to think about how to apporach and plan 
 * This article [Set the disabled attribute using javascript](https://bobbyhadz.com/blog/javascript-set-attribute-disabled#:~:text=To%20set%20the%20disabled%20attribute,disabled%20attribute%20to%20the%20element.) helped me to disable buttons that were not needed until certain events and then remove the disable attribute after said events. 
 
 * This [article](https://www.koderhq.com/tutorial/javascript/event-listener/#:~:text=We%20can%20invoke%20multiple%20functions,once%20with%20a%20different%20function.&text=In%20the%20example%20above%2C%20we%20add%20another%20event%20listener%20for,event%20on%20the%20same%20button.) from koderhq.com helped me to make the most out of event listeners in my code. 
-
+* I copied and pasted code content directly from [this](https://stackoverflow.com/questions/23885255/how-to-remove-ignore-hover-css-style-on-touch-devices) Stackoverflow thread to resolve a hover bug in mobile screens which was preventing the correct and incorrect class from providing the user with visual feedback.
 
 * Some articles from [w3schools](https://www.w3schools.com/) that helped me with some key features:
     
     * This [article](https://www.w3schools.com/js/js_htmldom_html.asp)  on changing the innerHTML of an element. I used this throughout my code.
     * This [article](https://www.w3schools.com/jsref/met_element_remove.asp) on removing an element and [this](https://www.w3schools.com/jsref/prop_node_lastchild.asp) one on targeting the last child helped me to write the code to reset the calculated result at the end of the quiz.
+     
 * I'd also like to mention that I received invaluable advice and help from members on the CI slack community, from tutors and from my mentor.

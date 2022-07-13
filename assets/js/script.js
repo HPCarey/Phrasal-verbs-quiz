@@ -13,41 +13,43 @@ window.addEventListener('DOMContentLoaded', (event) => {
   restartButton.addEventListener('click', restartQuiz);
   console.log('DOM fully loaded and parsed');
 });
+
 /**
  * Removes the hover effect for touch screens.
  * This entire function was copied from the source below:
  * https://stackoverflow.com/questions/23885255/how-to-remove-ignore-hover-css-style-on-touch-devices
  * @returns 
  */
-function watchForHover() {
+ function watchForHover() {
   // lastTouchTime is used for ignoring emulated mousemove events
   // that are fired after touchstart events. Since they're
   // indistinguishable from real events, we use the fact that they're
   // fired a few milliseconds after touchstart to filter them.
-  let lastTouchTime = 0
+  let lastTouchTime = 0;
 
   function enableHover() {
-    if (new Date() - lastTouchTime < 500) return
-    document.body.classList.add('hasHover')
+    if (new Date() - lastTouchTime < 500) return;
+    document.body.classList.add('hasHover');
   }
 
   function disableHover() {
-    document.body.classList.remove('hasHover')
+    document.body.classList.remove('hasHover');
   }
 
   function updateLastTouchTime() {
-    lastTouchTime = new Date()
+    lastTouchTime = new Date();
   }
 
-  document.addEventListener('touchstart', updateLastTouchTime, true)
-  document.addEventListener('touchstart', disableHover, true)
-  document.addEventListener('mousemove', enableHover, true)
+  document.addEventListener('touchstart', updateLastTouchTime, true);
+  document.addEventListener('touchstart', disableHover, true);
+  document.addEventListener('mousemove', enableHover, true);
 
-  enableHover()
+  enableHover();
 }
 
-watchForHover()
- 
+watchForHover();
+
+
 /**
  * runs quiz by hiding the start page and removing hide class from the quiz container
  * renders questions and shuffles them so the order is random: source:https://www.youtube.com/watch?v=riDzcEQbX6k&ab_channel=WebDevSimplified
@@ -168,11 +170,8 @@ function checkAnswer(event) {
     let nextButton = document.getElementById("next-button");
     nextButton.removeAttribute('disabled', '');
     nextButton.addEventListener('click', endQuiz());
-    console.log(nextButton);
-    
   }
 }
-
 
 function incrementScore() {
   let oldScore = parseInt(document.getElementById("question-score").innerText);
@@ -220,4 +219,5 @@ function restartQuiz() {
   document.getElementById("question-score").innerHTML = 0;
   let scorePercent = document.getElementById("score-div").lastChild;
   scorePercent.remove();
+  currentQuestionIndex = 0;
 }
