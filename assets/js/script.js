@@ -169,7 +169,7 @@ function checkAnswer(event) {
   } else {
     let nextButton = document.getElementById("next-button");
     nextButton.removeAttribute('disabled', '');
-    nextButton.addEventListener('click', endQuiz());
+    nextButton.addEventListener('click', endQuiz);
   }
 }
 
@@ -220,4 +220,6 @@ function restartQuiz() {
   let scorePercent = document.getElementById("score-div").lastChild;
   scorePercent.remove();
   currentQuestionIndex = 0;
+  let nextButton = document.getElementById("next-button");
+  nextButton.removeEventListener('click', endQuiz);
 }
