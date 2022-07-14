@@ -180,25 +180,31 @@ Each page's logo features a different sub-heading to provide the user with an ex
 
 ### Fixed bugs
 I have detailed some of the sources I used to fix bugs in the Credit section. Some of the main issues that were resolved were:
-* Answers were not displaying in the answer button and the error in the console was showing in the displayQuestion function: cannot set property innerhtml of null. 
+1. Answers were not displaying in the answer button and the error in the console was showing in the displayQuestion function: cannot set property innerhtml of null. 
     * I ran console.log on the first button and it was undefined. I did some google searching to see why that might be because my id was definitely correct.
     * This [website](https://bobbyhadz.com/blog/javascript-cannot-set-property-innerhtml-of-null#:~:text=To%20resolve%20the%20%22Cannot%20set,not%20present%20in%20the%20DOM.) provided some explanations and through process of elimination I decided to remove the div container id and that solved the issue. 
 
-* The biggest bug that took quite a bit of time to work out was that the wrong answers were being displayed as correct answers. In the console it sometimes showed that the correct answer for a question wasn't even in the options. 
+2. The biggest bug that took quite a bit of time to work out was that the wrong answers were being displayed as correct answers. In the console it sometimes showed that the correct answer for a question wasn't even in the options. 
     * I couldn't understand for a long time what was going on and was focusing all my attention on the checkAnswer function. It was only after going to tutor support that the tutor Alex was able to identitify that the issue was the currentQuestionIndex++ in the renderQuestion function. 
     * Once I removed this it solved the problem of the correct answer being identified but then the next question wasn't being rendered.
     * I added currentQuestionIndex++ to the next button event listener in the checkAnswer function and that resolved the question render bug. 
 
-* Correct/Incorrect class was not being removed from answer buttons once new question was rendered. I ran console.log on the answer buttons and saw that I was targeting them using their individual ids, so I could see from the console that it was better to target them by class.
+3. Correct/Incorrect class was not being removed from answer buttons once new question was rendered. 
+    * I ran console.log on the answer buttons and saw that I was targeting them using their individual ids, so I could see from the console that it was better to target them by class.
 
-* The score and result from previous games would be continued in the next game if the user clicked restart.
+4. The score and result from previous games would be continued in the next game if the user clicked restart.
     * To fix the score I just had to edit the innerHTML of the score element. 
-    * The code to calculate the result was a bit more complicated and involved inserting a paragrapg element. I had to figure out how to target that specific paragraph element and remove it once the restart function was called. Details of this are in the credit section.
+    * The code to calculate the result was a bit more complicated and involved inserting a paragraph element. I had to figure out how to target that specific paragraph element and remove it once the restart function was called. Details of this are in the credit section.
+
+5. The final question would jump straight to the end quiz page once the user clicked the answer, but ideally that wouldn't happen. I wrote the code so that the next-button event listener should call the end quiz function, giving the user a chance to see whether their final answer is correct or not. At some point I had it working like this, but along the way after making adjustjments for other features to work properly, this bug reappeared. 
+    * Eventually I realised that this bug was due to the fact that I had included the endquiz funciton brackets () inside the event listener.
+    * Once I removed the brackets another bug presented in which the quiz would only iterate one question before going to the end quiz page and show the user the results after the user had clicked restart
+    * I thought this bug could be fixed if I declared currentQuestionIndex = 0 but that was not effective.
+    *After trying a number of things, I went on to tutor support and the tutor Kevin realised the issue was with the event listener calling the endQuiz function and that I needed to remove this event listener in the restartQuiz function. He sent me a link about how to do this and this resolved the problem.  
 
 
 ### Unfixed bugs
 *  I wanted to find a way to remove the hover.pseudo class once a button had been clicked but the only solutions I found meant I would have to edit a lot of code in the html and css and I wanted to focus on Javascript for this project.
-* The final question jumps straight to the end quiz page once the user clicks the answer, but ideally that wouldn't happen. I wrote the code so that the next button event listener should call the end quiz function, giving the user a chance to see whether their final answer is correct or not. At some point I had it working like this, but along the way after making adjustjments for other features to work properly, this bug reappeared.
 
 ### Screens and Browsers
 * The site was tested in chrome, firefox and microsoft edge browsers. 
