@@ -200,7 +200,7 @@ I have detailed some of the sources I used to fix bugs in the Credit section. So
     * Eventually I realised that this bug was due to the fact that I had included the endquiz funciton brackets () inside the event listener.
     * Once I removed the brackets another bug presented in which the quiz would only iterate one question before going to the end quiz page and show the user the results after the user had clicked restart
     * I thought this bug could be fixed if I declared currentQuestionIndex = 0 but that was not effective.
-    *After trying a number of things, I went on to tutor support and the tutor Kevin realised the issue was with the event listener calling the endQuiz function and that I needed to remove this event listener in the restartQuiz function. He sent me a link about how to do this and this resolved the problem.  
+    * After trying a number of things, I went on to tutor support and the tutor Kevin realised the issue was with the event listener calling the endQuiz function and that I needed to remove this event listener in the restartQuiz function. He sent me a link about how to do this and this resolved the problem.  
 
 
 ### Unfixed bugs
